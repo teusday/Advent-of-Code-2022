@@ -12,12 +12,18 @@
     <None Remove="Day1\" />
     <None Remove="System.CommandLine.DragonFruit" />
     <None Remove="res\" />
+    <None Remove="System.CommandLine" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Day1\" />
     <Folder Include="res\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.CommandLine.DragonFruit" Version="0.4.0-alpha.22272.1" />
+    <None Update="res\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
 </Project>
