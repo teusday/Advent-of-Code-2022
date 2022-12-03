@@ -13,14 +13,15 @@
     <None Remove="System.CommandLine.DragonFruit" />
     <None Remove="res\" />
     <None Remove="System.CommandLine" />
+    <None Remove="Day2\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Day1\" />
     <Folder Include="res\" />
+    <Folder Include="Day2\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="res\*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
