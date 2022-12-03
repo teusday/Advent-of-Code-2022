@@ -34,17 +34,12 @@ namespace Advent_of_Code_2022.Day2
         {
             if (TheirThrow == MyThrow)
                 return GameOutcome.Draw;
-
-            return (TheirThrow, MyThrow) switch
-            {
-                (RPSChoice.Rock, RPSChoice.Paper) => GameOutcome.IWin,
-                (RPSChoice.Rock, RPSChoice.Scissors) => GameOutcome.TheyWin,
-                (RPSChoice.Paper, RPSChoice.Rock) => GameOutcome.TheyWin,
-                (RPSChoice.Paper, RPSChoice.Scissors) => GameOutcome.IWin,
-                (RPSChoice.Scissors, RPSChoice.Rock) => GameOutcome.IWin,
-                (RPSChoice.Scissors, RPSChoice.Paper) => GameOutcome.TheyWin,
-                _ => throw new AoCException("Did you... add new items? To Rock Paper Scissors?")
-            };
+            else if (GameRules.PlayThatLosesTo[TheirThrow] == MyThrow)
+                return GameOutcome.TheyWin;
+            else if (GameRules.PlayThatLosesTo[MyThrow] == TheirThrow)
+                return GameOutcome.IWin;
+            else
+                throw new AoCException($"Could not find winner of {TheirThrow}(theirs) and {MyThrow}(mine)");
         }
 
         public static bool TryParse(string toParse, [NotNullWhen(true)] out GameRound? gameRound)
@@ -54,26 +49,30 @@ namespace Advent_of_Code_2022.Day2
                 return false;
 
             var theirThrow = toParse[0];
-            var myThrow = toParse[2];
+            var desiredOutcome = toParse[2];
 
             try //There are two idioms competing here - TryParse means we just return false when there's an error, but the switch statement won't let us return from the function.
             {
+                var theirThrowParsed = theirThrow switch
+                {
+                    'A' => RPSChoice.Rock,
+                    'B' => RPSChoice.Paper,
+                    'C' => RPSChoice.Scissors,
+                    _ => throw new AoCException("Invalid 'their throw' column: " + theirThrow)
+                };
+
+                var desiredOutcomeParsed = desiredOutcome switch
+                {
+                    'X' => GameOutcome.TheyWin,
+                    'Y' => GameOutcome.Draw,
+                    'Z' => GameOutcome.IWin,
+                    _ => throw new AoCException("Invalid 'desired outcome' column: " + desiredOutcome)
+                };
+
                 gameRound = new()
                 {
-                    TheirThrow = theirThrow switch
-                    {
-                        'A' => RPSChoice.Rock,
-                        'B' => RPSChoice.Paper,
-                        'C' => RPSChoice.Scissors,
-                        _ => throw new AoCException("Invalid 'their throw' column: " + theirThrow)
-                    },
-                    MyThrow = myThrow switch
-                    {
-                        'X' => RPSChoice.Rock,
-                        'Y' => RPSChoice.Paper,
-                        'Z' => RPSChoice.Scissors,
-                        _ => throw new AoCException("Invalid 'my throw' column: " + theirThrow)
-                    }
+                    TheirThrow = theirThrowParsed,
+                    MyThrow = DetermineMyThrow(desiredOutcomeParsed, theirThrowParsed)
                 };
             }
             catch (AoCException)
@@ -82,6 +81,17 @@ namespace Advent_of_Code_2022.Day2
                 return false;
             }
             return true;
+
+            RPSChoice DetermineMyThrow(GameOutcome desiredOutcome, RPSChoice theirThrow)
+            {
+                return desiredOutcome switch
+                {
+                    GameOutcome.TheyWin => GameRules.PlayThatLosesTo[theirThrow],
+                    GameOutcome.Draw => theirThrow,
+                    GameOutcome.IWin => GameRules.PlayThatBeats[theirThrow],
+                    _ => throw new AoCException("C# hates switch expressions")
+                };
+            }
         }
     }
 
@@ -97,6 +107,22 @@ namespace Advent_of_Code_2022.Day2
         TheyWin,
         Draw,
         IWin
+    }
+
+    public static class GameRules
+    {
+        public static Dictionary<RPSChoice, RPSChoice> PlayThatLosesTo = new()
+        {
+            {RPSChoice.Rock, RPSChoice.Scissors},
+            {RPSChoice.Paper, RPSChoice.Rock },
+            {RPSChoice.Scissors, RPSChoice.Paper }
+        };
+        public static Dictionary<RPSChoice, RPSChoice> PlayThatBeats = new()
+        {
+            {RPSChoice.Rock, RPSChoice.Paper },
+            {RPSChoice.Paper, RPSChoice.Scissors },
+            {RPSChoice.Scissors, RPSChoice.Rock }
+        };
     }
 }
 
