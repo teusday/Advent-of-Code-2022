@@ -13,6 +13,7 @@ namespace Advent_of_Code_2022.Day3
         }
         public string FirstCompartment { get; set; }
         public string SecondCompartment { get; set; }
+        public string BothCompartments { get => FirstCompartment + SecondCompartment; }
 
         public char WronglyPlacedItem
         {
