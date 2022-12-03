@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent of Code 2022", "Advent of Code 2022\Advent of Code 2022.csproj", "{B28BA982-7F7F-4C17-9884-96942C6F17CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoCTests", "AoCTests\AoCTests.csproj", "{FB2C55CE-BD74-41C0-8887-CF4A30957D75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B28BA982-7F7F-4C17-9884-96942C6F17CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28BA982-7F7F-4C17-9884-96942C6F17CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28BA982-7F7F-4C17-9884-96942C6F17CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2C55CE-BD74-41C0-8887-CF4A30957D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2C55CE-BD74-41C0-8887-CF4A30957D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2C55CE-BD74-41C0-8887-CF4A30957D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2C55CE-BD74-41C0-8887-CF4A30957D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

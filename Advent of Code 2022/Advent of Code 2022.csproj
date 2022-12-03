@@ -14,11 +14,13 @@
     <None Remove="res\" />
     <None Remove="System.CommandLine" />
     <None Remove="Day2\" />
+    <None Remove="Day3\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Day1\" />
     <Folder Include="res\" />
     <Folder Include="Day2\" />
+    <Folder Include="Day3\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="res\*">
