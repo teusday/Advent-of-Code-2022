@@ -19,7 +19,11 @@ namespace Advent_of_Code_2022.Day4
             var fullyOverlappingPairs = searchPairs
                 .Where(pair => pair.a.Contains(pair.b) || pair.b.Contains(pair.a));
 
+            var overlappingPairs = searchPairs
+                .Where(pair => pair.a.Overlaps(pair.b));
+
             Console.WriteLine($"{fullyOverlappingPairs.Count()} pairs have a fully overlapped range");
+            Console.WriteLine($"{overlappingPairs.Count()} pairs have any overlapping range");
         }
 
         private async Task<List<(SearchRange, SearchRange)>> ReadInSearchPairs(StreamReader file)

@@ -30,6 +30,12 @@ namespace Advent_of_Code_2022.Day4
         {
             return otherRange.Start >= Start && otherRange.End <= End;
         }
+
+        public bool Overlaps(SearchRange otherRange)
+        {
+            var nonOverlapping = otherRange.End < Start || otherRange.Start > End;
+            return !nonOverlapping;
+        }
     }
 }
 
