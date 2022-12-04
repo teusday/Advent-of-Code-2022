@@ -15,12 +15,16 @@
     <None Remove="System.CommandLine" />
     <None Remove="Day2\" />
     <None Remove="Day3\" />
+    <None Remove="Day4\" />
+    <None Remove="CustomExtensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Day1\" />
     <Folder Include="res\" />
     <Folder Include="Day2\" />
     <Folder Include="Day3\" />
+    <Folder Include="Day4\" />
+    <Folder Include="CustomExtensions\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="res\*">
