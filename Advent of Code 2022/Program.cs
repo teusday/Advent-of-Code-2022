@@ -3,6 +3,7 @@ using Advent_of_Code_2022.Day1;
 using Advent_of_Code_2022.Day2;
 using Advent_of_Code_2022.Day3;
 using Advent_of_Code_2022.Day4;
+using Advent_of_Code_2022.Day5;
 
 class Program
 {
@@ -14,6 +15,7 @@ class Program
         rootCommand.AddCommand(Day2.Command());
         rootCommand.AddCommand(Day3.Command());
         rootCommand.AddCommand(Day4.Command());
+        rootCommand.AddCommand(Day5.Command());
 
         try
         {

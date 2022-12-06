@@ -1,36 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>Advent_of_Code_2022</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Day1\" />
-    <None Remove="System.CommandLine.DragonFruit" />
-    <None Remove="res\" />
-    <None Remove="System.CommandLine" />
-    <None Remove="Day2\" />
-    <None Remove="Day3\" />
-    <None Remove="Day4\" />
-    <None Remove="CustomExtensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Day1\" />
-    <Folder Include="res\" />
-    <Folder Include="Day2\" />
-    <Folder Include="Day3\" />
-    <Folder Include="Day4\" />
-    <Folder Include="CustomExtensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="res\*">
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-  </ItemGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<RootNamespace>Advent_of_Code_2022</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Day1\" />
+		<None Remove="System.CommandLine.DragonFruit" />
+		<None Remove="res\" />
+		<None Remove="System.CommandLine" />
+		<None Remove="Day2\" />
+		<None Remove="Day3\" />
+		<None Remove="Day4\" />
+		<None Remove="CustomExtensions\" />
+		<None Remove="Day5\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Day1\" />
+		<Folder Include="res\" />
+		<Folder Include="Day2\" />
+		<Folder Include="Day3\" />
+		<Folder Include="Day4\" />
+		<Folder Include="CustomExtensions\" />
+		<Folder Include="Day5\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="res\*">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+	</ItemGroup>
 </Project>

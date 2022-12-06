@@ -116,3 +116,8 @@
 /Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/zh-Hant/System.CommandLine.resources.dll
 /Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/Advent of Code 2022.dll
 /Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/Advent of Code 2022.pdb
+/Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/res/Day1.txt
+/Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/res/Day2.txt
+/Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/res/Day3.txt
+/Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/res/Day4.txt
+/Users/zak/Code/Advent of Code 2022/AoCTests/bin/Debug/net7.0/res/Day5.txt
