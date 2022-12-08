@@ -5,6 +5,7 @@ using Advent_of_Code_2022.Day3;
 using Advent_of_Code_2022.Day4;
 using Advent_of_Code_2022.Day5;
 using Advent_of_Code_2022.Day6;
+using Advent_of_Code_2022.Day7;
 
 class Program
 {
@@ -24,6 +25,7 @@ class Program
         rootCommand.AddCommand(Day4.Command(fileOption));
         rootCommand.AddCommand(Day5.Command());
         rootCommand.AddCommand(Day6.Command(fileOption));
+        rootCommand.AddCommand(Day7.Command(fileOption));
 
         try
         {
