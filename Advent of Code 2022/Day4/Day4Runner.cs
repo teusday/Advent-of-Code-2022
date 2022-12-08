@@ -8,10 +8,10 @@ namespace Advent_of_Code_2022.Day4
         {
         }
 
-        public async Task Run()
+        public async Task Run(FileInfo f)
         {
             List<(SearchRange a, SearchRange b)> searchPairs;
-            using (var file = File.OpenText("./res/Day4.txt"))
+            using (var file = f.OpenText())
             {
                 searchPairs = await ReadInSearchPairs(file);
             }

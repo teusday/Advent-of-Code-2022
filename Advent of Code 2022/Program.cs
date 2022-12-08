@@ -12,7 +12,7 @@ class Program
     {
         var rootCommand = new RootCommand("Runner for Advent of Code 2022");
 
-        var fileOption = new Option<FileInfo>(
+        var fileOption = new Option<FileInfo?>(
               name: "--file",
               description: "The puzzle input");
 
@@ -21,7 +21,7 @@ class Program
         rootCommand.AddCommand(Day1.Command());
         rootCommand.AddCommand(Day2.Command());
         rootCommand.AddCommand(Day3.Command());
-        rootCommand.AddCommand(Day4.Command());
+        rootCommand.AddCommand(Day4.Command(fileOption));
         rootCommand.AddCommand(Day5.Command());
         rootCommand.AddCommand(Day6.Command(fileOption));
 
