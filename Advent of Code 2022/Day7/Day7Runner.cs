@@ -38,9 +38,26 @@ namespace Advent_of_Code_2022.Day7
             }
 
             // Find directories under max size (100,000)
-            var smallDirectories = fileSystem.DirectoriesWhere(d => d.GetSize() < 100_000);
+            var smallDirectories = fileSystem.AllDirectories().Where(d => d.GetSize() < 100_000);
             Console.WriteLine("Directories under 100,000: " + string.Join("; ", smallDirectories.Select(d => d.Name)));
             Console.WriteLine("Their total size is: " + smallDirectories.Sum(d => d.GetSize()));
+
+            //Searching for the smallest directory larger than ideal size
+            var idealSize = 30000000;
+            var bestFit = fileSystem.AllDirectories().Aggregate<ELFSDir, (ELFSDir? d, int s)>((null, 0), (acc, cur) =>
+            {
+                var s = cur.GetSize();
+                if (s < idealSize)
+                    return acc;
+                else if (acc.d == null || acc.s > s)
+                    return (cur, s); // better than accummulator
+                else
+                    return acc;
+            });
+            if (bestFit.d == null)
+                Console.WriteLine("No directory fit the requirements");
+            else
+                Console.WriteLine($"Best fit directory is {bestFit.d.Name} with size {bestFit.s}");
         }
 
         public async Task<List<IXSHInstruction>> ReadInXshLines(StreamReader file)

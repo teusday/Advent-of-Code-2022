@@ -37,22 +37,17 @@ namespace Advent_of_Code_2022.Day7
             WorkingDirectory.Children.Add(new ELFSDir(name, WorkingDirectory));
         }
 
-        public List<ELFSDir> DirectoriesWhere(Func<ELFSDir, bool> selector)
+        public IEnumerable<ELFSDir> AllDirectories()
         {
-            return DirectoriesWhere(selector, Root).ToList();
+            return AllDirectories(Root);
         }
 
-        private IEnumerable<ELFSDir> DirectoriesWhere(Func<ELFSDir, bool> selector, ELFSDir node)
+        private IEnumerable<ELFSDir> AllDirectories(ELFSDir node)
         {
             var directoryChildren = node.Children
                 .Where(e => e is ELFSDir)
                 .Select(e => (ELFSDir)e);
-            var directoriesWhere = directoryChildren.SelectMany(e => DirectoriesWhere(selector, e));
-
-            if (selector(node))
-                return directoriesWhere.Append(node);
-            else
-                return directoriesWhere;
+            return directoryChildren.SelectMany(c => AllDirectories(c)).Append(node);
         }
     }
 
