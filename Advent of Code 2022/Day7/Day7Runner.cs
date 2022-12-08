@@ -42,8 +42,13 @@ namespace Advent_of_Code_2022.Day7
             Console.WriteLine("Directories under 100,000: " + string.Join("; ", smallDirectories.Select(d => d.Name)));
             Console.WriteLine("Their total size is: " + smallDirectories.Sum(d => d.GetSize()));
 
+            var neededSize = 30_000_000;
+            var diskSpace = 70_000_000;
+            var usedSpace = fileSystem.Root.GetSize();
+            // ideal size for deletion
+            var idealSize = usedSpace - (diskSpace - neededSize);
+
             //Searching for the smallest directory larger than ideal size
-            var idealSize = 30000000;
             var bestFit = fileSystem.AllDirectories().Aggregate<ELFSDir, (ELFSDir? d, int s)>((null, 0), (acc, cur) =>
             {
                 var s = cur.GetSize();
