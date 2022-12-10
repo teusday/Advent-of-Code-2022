@@ -19,6 +19,8 @@
 		<None Remove="Day5\" />
 		<None Remove="Day6\" />
 		<None Remove="Day7\" />
+		<None Remove="Day8\" />
+		<None Remove="Utils\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Day1\" />
@@ -30,10 +32,11 @@
 		<Folder Include="Day5\" />
 		<Folder Include="Day6\" />
 		<Folder Include="Day7\" />
+		<Folder Include="Day8\" />
+		<Folder Include="Utils\" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="res\*">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 	<ItemGroup>
