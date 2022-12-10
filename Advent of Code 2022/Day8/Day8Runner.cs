@@ -18,6 +18,10 @@ namespace Advent_of_Code_2022.Day8
             var visiblity = forest.DetermineVisibility();
 
             Console.WriteLine($"Visibile trees: {visiblity.VisibleCount()}");
+
+            var scenicMatrix = forest.CalculateScenicScores();
+
+            Console.WriteLine($"Best scenic score possible is {scenicMatrix.BestScore()}");
         }
 
         private async Task<Forest> ReadInForest(StreamReader f)
