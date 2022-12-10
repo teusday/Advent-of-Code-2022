@@ -108,11 +108,11 @@ namespace Advent_of_Code_2022.Day8
 
                 var treeRow = Rows().ElementAt(row);
                 var right = TreesSeen(treeRow.ElementsIn((column + 1)..));
-                var left = TreesSeen(treeRow.ElementsIn(..(column - 1)).Reverse());
+                var left = TreesSeen(treeRow.ElementsIn(..(column)).Reverse());
 
                 var treeColumn = Columns().ElementAt(column);
                 var down = TreesSeen(treeColumn.ElementsIn((row + 1)..));
-                var up = TreesSeen(treeColumn.ElementsIn(..(row - 1)).Reverse());
+                var up = TreesSeen(treeColumn.ElementsIn(..(row)).Reverse());
 
                 return right * left * up * down;
 
