@@ -11,6 +11,17 @@ namespace Advent_of_Code_2022.Day9
             {
                 headMovements = await ReadInMovements(f);
             }
+
+            VisitedPointSet tailVisited = new VisitedPointSet();
+            KnotState state = new KnotState();
+            state.SetOnTailChange((p) => tailVisited.AddPoint(p));
+
+            foreach (var movement in headMovements)
+            {
+                state.MoveHead(movement);
+            }
+
+            Console.WriteLine($"{tailVisited.VisitedPoints.Count} points visited by tail");
         }
 
         public async Task<List<Movement>> ReadInMovements(StreamReader file)
