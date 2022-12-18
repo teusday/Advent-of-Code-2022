@@ -16,7 +16,7 @@ namespace Advent_of_Code_2022.Day10
                 instructionQueue = new Queue<IInstruction>(await ReadInInstructions(f));
             }
 
-            List<int> samples = new List<int>();
+            List<(int register, int cycle)> samples = new();
 
             Device d = new Device();
             int cycle = 0;
@@ -25,14 +25,17 @@ namespace Advent_of_Code_2022.Day10
             {
                 cycle++;
                 var ins = instructionQueue.Peek();
+
+                //Sample during the cycle
+                if ((cycle - initialSample) % cycleSampleRate == 0)
+                    samples.Add((d.X, cycle));
+
                 if (ins.DoCycle(d))
                     instructionQueue.Dequeue(); //Instruction completed; dequeue
-
-                if ((cycle - initialSample) % cycleSampleRate == 0)
-                    samples.Add(cycle * d.X);
             }
 
-            Console.WriteLine("Sample sum is " + samples.Sum());
+            Console.WriteLine("All samples: " + string.Join(";", samples.Select(tup => $"{tup.cycle},{tup.register}")));
+            Console.WriteLine("Sample sum is " + samples.Sum(tup => tup.cycle * tup.register));
         }
 
         public async Task<List<IInstruction>> ReadInInstructions(StreamReader file)
