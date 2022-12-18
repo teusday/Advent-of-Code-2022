@@ -9,10 +9,13 @@ namespace Advent_of_Code_2022.Day9
         {
             var c = new Command("9", "Rope Bridge");
 
-            c.SetHandler((f) =>
+            var knotCount = new Option<int>(new string[] { "--knots", "-k" }, () => 2);
+            c.AddOption(knotCount);
+
+            c.SetHandler((f, c) =>
             {
-                return new Day9Runner().Run(f ?? new FileInfo("res/Day9.txt"));
-            }, fileOption);
+                return new Day9Runner().Run(f ?? new FileInfo("res/Day9.txt"), c);
+            }, fileOption, knotCount);
 
             return c;
         }

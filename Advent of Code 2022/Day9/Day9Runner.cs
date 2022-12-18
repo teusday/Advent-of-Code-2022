@@ -4,7 +4,7 @@ namespace Advent_of_Code_2022.Day9
 {
     public class Day9Runner
     {
-        public async Task Run(FileInfo file)
+        public async Task Run(FileInfo file, int knotCount)
         {
             List<Movement> headMovements;
             using (var f = file.OpenText())
@@ -13,8 +13,8 @@ namespace Advent_of_Code_2022.Day9
             }
 
             VisitedPointSet tailVisited = new VisitedPointSet();
-            KnotState state = new KnotState();
-            state.SetOnTailChange((p) => tailVisited.AddPoint(p));
+            KnotState state = new KnotState(knotCount);
+            state.SetOnLastKnotChange((p) => tailVisited.AddPoint(p));
 
             foreach (var movement in headMovements)
             {
