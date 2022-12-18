@@ -1,5 +1,6 @@
 ﻿using System.CommandLine;
 using Advent_of_Code_2022.Day1;
+using Advent_of_Code_2022.Day10;
 using Advent_of_Code_2022.Day2;
 using Advent_of_Code_2022.Day3;
 using Advent_of_Code_2022.Day4;
@@ -30,6 +31,7 @@ class Program
         rootCommand.AddCommand(Day7.Command(fileOption));
         rootCommand.AddCommand(Day8.Command(fileOption));
         rootCommand.AddCommand(Day9.Command(fileOption));
+        rootCommand.AddCommand(Day10.Command(fileOption));
 
         try
         {
