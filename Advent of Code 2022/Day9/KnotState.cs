@@ -18,6 +18,7 @@ namespace Advent_of_Code_2022.Day9
         public void SetOnTailChange(Action<Point> onTailChange)
         {
             OnTailChange = onTailChange;
+            OnTailChange(Tail);
         }
 
         public void MoveHead(Movement movement)
@@ -82,7 +83,7 @@ namespace Advent_of_Code_2022.Day9
             return direction switch
             {
                 MovementDirection.Up => p with { y = p.y + 1 },
-                MovementDirection.UpRight => p with { x = p.x + 1, y = p.x + 1 },
+                MovementDirection.UpRight => p with { x = p.x + 1, y = p.y + 1 },
                 MovementDirection.Right => p with { x = p.x + 1 },
                 MovementDirection.DownRight => p with { x = p.x + 1, y = p.y - 1 },
                 MovementDirection.Down => p with { y = p.y - 1 },
